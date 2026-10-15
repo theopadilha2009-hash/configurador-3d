@@ -1,5 +1,8 @@
 export type Status = "disponivel" | "reservada" | "vendida"
 
+// atalho: número de demo; trocar pelo corretor real quando integrar CRM
+export const WHATSAPP = "5511999999999"
+
 export interface Unidade {
   id: string // "101", "102", ...
   tipologia: string
