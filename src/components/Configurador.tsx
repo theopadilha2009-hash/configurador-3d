@@ -13,7 +13,7 @@ import { Bloom, EffectComposer, Vignette } from "@react-three/postprocessing"
 import * as THREE from "three"
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib"
 import Cena, { PE_DIREITO } from "@/components/Cena"
-import { brl, LABEL_STATUS, POR_ID, UNIDADES } from "@/data/unidades"
+import { brl, LABEL_STATUS, POR_ID, UNIDADES, WHATSAPP } from "@/data/unidades"
 
 type Vista = "frente" | "lateral" | "fundos" | "cobertura"
 
@@ -362,6 +362,19 @@ export default function Configurador() {
                 Próxima disponível →
               </button>
             </div>
+
+            {un.status === "disponivel" && (
+              <a
+                href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
+                  `Olá! Tenho interesse na unidade ${un.id} (${un.tipologia}, ${chave(un.areaPrivativa)} m²) do Giardino — ${brl(un.valorTabela)}.`,
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 block rounded-full bg-emerald-500 px-4 py-2 text-center text-xs font-semibold text-black hover:bg-emerald-400"
+              >
+                Tenho interesse — falar no WhatsApp
+              </a>
+            )}
 
             <p className="mt-3 text-[9px] leading-relaxed text-white/35">
               Imagens meramente ilustrativas. Mobiliário, acabamentos e
